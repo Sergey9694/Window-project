@@ -51,6 +51,8 @@ const modals = () => {
             document.body.style.overflow = 'hidden';
         }, time);
     }
+
+
     
     bindModal('.popup_engineer_btn', '.popup_engineer', '.popup_engineer .popup_close');
     bindModal('.phone_link', '.popup', '.popup .popup_close');
@@ -59,5 +61,13 @@ const modals = () => {
     bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
     // showModalByTime('.popup', 60000);
 };
+
+export function autoCloseModal(modalWindowSelector) {
+    const modalClose = document.querySelectorAll(modalWindowSelector);
+        modalClose.forEach(item => {
+            item.style.display ='none';
+            document.body.style.overflow = '';
+        });
+}
 
 export default modals;
