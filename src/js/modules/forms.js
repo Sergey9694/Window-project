@@ -29,6 +29,12 @@ const forms = (state) => {
         });
     };
 
+    const clearState = () => {
+        for (let key in state) {
+            delete state[key];
+        }
+    };
+
     form.forEach(item => {
         item.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -59,6 +65,7 @@ const forms = (state) => {
                         statusMessage.remove();
                         autoCloseModal('[data-modal]');
                     }, 2000);
+                    clearState();
                 });
         });
     });
