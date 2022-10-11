@@ -2,9 +2,17 @@ import './slider';
 import modals from './modules/modals';
 import tabs from './modules/tabs';
 import forms from './modules/forms';
+import changeModalState from './modules/changeModalState';
 
 window.addEventListener('DOMContentLoaded', () => {
     'use strict';
+
+    // Объект с данными для отправки
+    let modalState = {
+
+    };
+
+    changeModalState(modalState);
     modals();
     tabs('.glazing_slider', '.glazing_block', '.glazing_content', 'active');
     tabs('.decoration_slider', '.no_click', '.decoration_content > div > div', 'after_click');
