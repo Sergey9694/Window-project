@@ -1,25 +1,20 @@
-const modals = (state) => {
+import validationModal from "./validationModal";
+
+
+const modals = () => {
     function bindModal(triggerSelector, modalSelector, closeSelector, closeClickOverlay = true) {
         const trigger = document.querySelectorAll(triggerSelector),
               modal = document.querySelector(modalSelector),
               close = document.querySelector(closeSelector),
-              windows = document.querySelectorAll('[data-modal]'),
-              btn = document.querySelector('.popup_calc_button');
+              windows = document.querySelectorAll('[data-modal]');
 
 
         trigger.forEach(item => {
             item.addEventListener('click', (e) => {
-                if (e.target || e.target.classList.contains('popup_calc_button')) {
+                if (e.target) {
                     e.preventDefault();
-                    if (!state.form || !state.width || !state.height) {
-                        console.log('2222');
-                        btn.setAttribute('disabled', true);
-                        
-                    } else {
-                        console.log('3333');
-                        btn.removeAttribute('disabled', true);
-                    }
                 }
+
 
 
                 windows.forEach(item => {
@@ -71,6 +66,8 @@ const modals = (state) => {
     bindModal('.popup_calc_button', '.popup_calc_profile', '.popup_calc_profile_close', false);
     bindModal('.popup_calc_profile_button', '.popup_calc_end', '.popup_calc_end_close', false);
     // showModalByTime('.popup', 60000);
+    validationModal('.form-control', '.popup_calc_button', '#width', '#height', 'input');
+    
 };
 
 export function autoCloseModal(modalWindowSelector) {
