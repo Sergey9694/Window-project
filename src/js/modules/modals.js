@@ -15,8 +15,6 @@ const modals = () => {
                     e.preventDefault();
                 }
 
-
-
                 windows.forEach(item => {
                     item.style.display = 'none';
                 });
